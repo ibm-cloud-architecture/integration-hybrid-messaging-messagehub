@@ -33,7 +33,7 @@ receiveClient.subscribe(in_topic);
 var sendClient = mqlight.createClient(opts);
 
 receiveClient.on('error', function(error) {
-    console.error('mqlight.createClient error, service: %s',my_service);
+    console.error('mqlight.createClient error');
     if (error) {
       if (error.message) console.error('message: %s', error.toString());
       else if (error.stack) console.error(error.stack);
