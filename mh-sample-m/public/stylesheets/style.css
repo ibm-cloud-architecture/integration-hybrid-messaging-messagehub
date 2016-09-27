@@ -176,3 +176,7 @@ search-bar .bx--search {
     font-weight: 400;
     background-color: #0f212e;
 }
+
+li {
+    color:#66ff66;
+}

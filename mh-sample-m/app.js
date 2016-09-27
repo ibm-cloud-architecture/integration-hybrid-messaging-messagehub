@@ -25,13 +25,14 @@ if (process.env.VCAP_SERVICES) {
 
 var my_topic = 'public';
 var mqlight = require('mqlight');
+
+var receiveClient = mqlight.createClient(opts);
+receiveClient.subscribe(my_topic);
+
 io.sockets.on('connection', function(socket) {
 
-  var receiveClient = mqlight.createClient(opts);
-  receiveClient.subscribe(my_topic);
-
   receiveClient.on('error', function(error) {
-    onsole.error('mqlight.createClient error, service: %s',opts.service);
+    console.error('mqlight.createClient error, service: %s',opts.service);
     if (error) {
       if (error.message) console.error('message: %s', error.toString());
       else if (error.stack) console.error(error.stack);
@@ -42,7 +43,7 @@ io.sockets.on('connection', function(socket) {
     console.log('<<< Received from Message Hub: %s, topic: %s, ttl: %d', data
                                                         , delivery.message.topic
                                                         , delivery.message.ttl);
-    socket.broadcast.emit('msg', {'msg' : data});
+    socket.emit('msg', {'msg' : data});
   });
 
 });
