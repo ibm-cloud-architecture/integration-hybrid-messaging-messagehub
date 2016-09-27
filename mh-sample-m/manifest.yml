@@ -1,3 +1,4 @@
+---
 applications:
 - path: .
   memory: 256M
@@ -5,6 +6,5 @@ applications:
   domain: mybluemix.net
   name: mh-sample-m
   host: mh-sample-m
-  disk_quota: 1024M
   services:
     - MessageHub

@@ -1,0 +1,87 @@
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 10px; 
+  background-color: #253440;
+  color: #fff;
+  border-bottom: 1px solid #263237;  
+}
+
+form {
+  margin: 0;
+  padding: 5px;
+  background-color: #eee;
+  border-bottom: 1px solid #999;  
+}
+
+input {  
+  width: 70%;
+  border: 1px solid #666;
+  border-radius: 3px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+button {
+  background-color: #2e75b3;
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 15px;
+}
+
+#messages li {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.header {  
+  font-size: 12px;
+  color: #666;
+  padding: 5px;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.me .header {
+  background-color: lightyellow;
+}
+
+.who {
+  float: left;
+  font-weight: bold;  
+}
+
+.when {
+  float: right;
+  font-style: italic;
+  color: #999;
+}
+
+.msg {
+  padding: 5px;
+}
+
+.notice {
+  padding: 5px;
+  color: #999;
+  font-style: italic;
+}

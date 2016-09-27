@@ -1,9 +1,9 @@
-/*eslint-env node*/
-
-// This application uses express as its web server
-// for more info, see: http://expressjs.com
+// Startup Express App
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+http.listen(process.env.PORT || 3000);
 
 var cfenv = require('cfenv');
 var appEnv = cfenv.getAppEnv();
@@ -24,30 +24,43 @@ if (process.env.VCAP_SERVICES) {
 }
 
 var my_topic = 'public';
-
 var mqlight = require('mqlight');
-var receiveClient = mqlight.createClient(opts);
-receiveClient.subscribe(my_topic);
+io.sockets.on('connection', function(socket) {
 
-receiveClient.on('error', function(error) {
-    console.error('mqlight.createClient error, service: %s',opts.service);
+  var receiveClient = mqlight.createClient(opts);
+  receiveClient.subscribe(my_topic);
+
+  receiveClient.on('error', function(error) {
+    onsole.error('mqlight.createClient error, service: %s',opts.service);
     if (error) {
       if (error.message) console.error('message: %s', error.toString());
       else if (error.stack) console.error(error.stack);
     }
-});
+  });
 
-receiveClient.on('message', function(data, delivery) {
-  console.log('<<< Received from Message Hub: %s, topic: %s, ttl: %d', data
+  receiveClient.on('message', function(data, delivery) {
+    console.log('<<< Received from Message Hub: %s, topic: %s, ttl: %d', data
                                                         , delivery.message.topic
                                                         , delivery.message.ttl);
+    socket.broadcast.emit('msg', {'msg' : data});
+  });
+
 });
 
-// serve the files out of ./public as our main files
-app.use(express.static(__dirname + '/public'));
+// Configure Jade template engine
+var path = require('path');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public')));
 
-// start server on the specified port and binding host
-app.listen(appEnv.port, '0.0.0.0', function() {
-  // print a message when the server starts listening
-  console.log('server starting on ' + appEnv.url);
+// handle HTTP GET request to the "/" URL
+app.get('/', function(req, res) {
+  res.render('index', {messages: ""});
+});
+
+// socket.io listen for messages
+io.on('connection', function(socket) {
+  socket.on('msg', function(data) {
+    socket.broadcast.emit('msg', data);
+  });
 });
