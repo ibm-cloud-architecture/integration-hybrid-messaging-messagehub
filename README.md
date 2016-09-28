@@ -5,8 +5,8 @@
 This project provides an end-to-end reference implementation to demonstrate how to implement hybrid messaging that connects public cloud to on-prem systems via a secure messaging solution. It uses Bluemix Secure Gateway to communicate to MQ deployed on a SoftLayer VM image (to mimic on-prem deployment)
 
 The project also provides a simple Node.js application that publishes and subscribes to the MQ topics via MQLite protocol. It is deployed to Bluemix as a Cloud Foundry application.
-
-### Insert Diagram here
+ 
+![Hybrid Messaging Architecture Overview](static/imgs/hybrid_messaging.png?raw=true)
 
 ## Setup the MQ on SoftLayer
 
