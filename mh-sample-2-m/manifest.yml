@@ -1,0 +1,10 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: mh-sample-2-m
+  host: mh-sample-2-m
+  disk_quota: 1024M
+  services:
+    - MessageHub

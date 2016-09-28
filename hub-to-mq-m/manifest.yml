@@ -1,0 +1,15 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: hub-to-mq-m
+  host: hub-to-mq-m
+  disk_quota: 1024M
+  services:
+    - MessageHub
+  env:
+    MQ_SERVER: cap-sg-prd-4.integration.ibmcloud.com
+    MQ_PORT: 16582
+    MQ_USER: mqm
+    MQ_PASSWORD: Fqp4Gs4k

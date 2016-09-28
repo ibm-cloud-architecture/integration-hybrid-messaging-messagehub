@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Hybrid Messaging Sample</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+    var message = "";
+    var url = "";
+    var clicked = false;
+    var tabbed = false;
+    $(document).ready(function(){
+      $("#messageinput").focus(function() {
+          $("#resultMsg").hide();
+            $("#errorMsg").hide();
+
+      });
+      $("#submitbutton").click(function(e){
+          e.preventDefault();
+          message=$("#messageinput").val();
+          url = "/api/message?message=" + message;
+        $.ajax({type: "GET",
+                url:  url,
+                cache: false,
+                success:function(result){
+                  //$("#sharelink").html(result);
+                  $("#messageinput").val("");
+                  $("#resultMsg").show();
+                },
+                error: function(xhr) {
+                  $("#errorMsg").show();
+                }});
+      });
+    });
+
+    </script>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td style= "width:30%;">
+          <img class = "newappIcon" src="images/newapp-icon.png">
+        </td>
+        <td>
+            <h1>Hybrid Messaging Sample</h1>
+            <p>The sample application demonstrate how to build a Bluemix Cloud application to publish/subscribe
+              messages to on-prem MQ system, via Bluemix Secure Gateway. Check out the source code and detail at the
+            <a href = "https://github.com/ibm-cloud-architecture/integration-hybrid-messaging"><b>github project</b></a>
+        </td>
+      </tr>
+    </table>
+    <br/><br/>
+    <div class="centered"><h3>Please enter a text message below to test the integration scenario</h3>
+    <input class="centered bx--search__input search-bar" id="messageinput" placeholder="Enter a message to publish">
+    <button id="submitbutton" class="createButton bx--footer--config__submit-btn bx--btn">Send Message</button>
+    <div class="result" id="resultMsg" style='display:none;color:#66ff66;'>Message has been successfully published to Message Hub</div>
+    <div class="result" id="errorMsg" style='display:none;color:red;'>Failed to publish to Message Hub</div>
+  </div>
+
+
+  </body>
+
+</html>
