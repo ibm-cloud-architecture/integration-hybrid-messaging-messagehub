@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Hybrid Messaging Sample
+    meta(name='viewport', content='initial-scale=1.0, width=device-width, \
+      height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/normalize/3.0.1/normalize.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    table
+      tr
+        td(style="width:40%")
+          img.newappIcon(src='images/newapp-icon.png')
+        td
+          h1 Hybrid Messaging Sample
+          p
+            | The sample application demonstrate how to build a Bluemix Cloud application to publish/subscribe
+            | messages to on-prem MQ system, via Bluemix Secure Gateway. Check out the source code and detail at the
+            | &nbsp;
+            a(href='https://github.com/ibm-cloud-architecture/integration-hybrid-messaging')
+              b github project
+
+    .centered
+      //h3 Please enter a text message below to test the integration scenario
+      //form
+      //  input(id='msg', autocomplete='off', autofocus)
+      //  button(type='submit') Send
+      h3 Received Messages:
+      ul#messages
+        - for(var i=0,ln=messages.length;i<ln;i++)
+          li
+            .header.clearfix
+            .msg= messages[i].msg
+      script(src='//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js')
+      script(src='/socket.io/socket.io.js')
+      script(src='/javascripts/client.js')

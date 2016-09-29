@@ -1,0 +1,182 @@
+/* style.css
+ * This file provides css styles.
+ */
+
+body,html {
+	background-color: #3b4b54; width : 100%;
+	height: 100%;
+	margin: 0 auto;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: #ffffff;
+}
+
+a {
+	text-decoration: none;
+	color: #00aed1;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.newappIcon {
+	padding-top: 10%;
+	display: block;
+	margin: 0 auto;
+	padding-bottom: 2em;
+	max-width:200px;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.leftHalf {
+	float: left;
+	background-color: #26343f;
+	width: 45%;
+	height: 100%;
+}
+
+.rightHalf {
+	float: right;
+	width: 55%;
+	background-color: #313f4a;
+	height: 100%;
+	overflow:auto;
+}
+
+.blue {
+	color: #00aed1;
+}
+
+
+table {
+	table-layout: fixed;
+	width: 800px;
+	margin: 0 auto;
+	word-wrap: break-word;
+	padding-top:10%;
+}
+
+th {
+	border-bottom: 1px solid #000;
+}
+
+th, td {
+	text-align: left;
+	padding: 2px 20px;
+}
+
+.env-var {
+	text-align: right;
+	border-right: 1px solid #000;
+	width: 30%;
+}
+
+pre {
+	padding: 0;
+	margin: 0;
+}
+
+/*
+element.style {
+}
+search-bar .bx--search__input.full {
+    display: inherit;
+}
+search-bar .bx--search__input.full {
+    display: none;
+}
+search-bar .bx--search__input {
+    line-height: 1.125rem;
+}
+search-bar .bx--search__input {
+    line-height: 1rem;
+}
+.bx--search__input {
+    font-size: 1rem;
+}
+*/
+.bx--search__input {
+		width: 43%;
+    font-size: 0.875rem;
+    padding: 1rem 1rem 1rem 2.5rem;
+    color: #fff;
+    background-color: rgba(255,255,255,0.1);
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    z-index: 1;
+}
+/*
+search-bar .bx--search {
+    font-size: 1rem;
+}
+
+search-bar .bx--search {
+    font-size: .9375rem;
+}
+search-bar .bx--search {
+    position: relative;
+    margin: 2rem;
+		margin-right: 10rem;
+    font-size: 1rem;
+}
+*/
+
+.centered {
+  position: fixed; /* or absolute */
+  left: 40%;
+	margin-left: -100px;
+}
+
+
+
+.bx--btn {
+	  float: left;
+	  min-width: 16.5em;
+    font-family: 'IBM Helvetica', Helvetica Neue, HelveticaNeue, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+		margin-top: 5em;
+    letter-spacing: .5px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: inline-block;
+    height: 2.5rem;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    color: #152935;
+    background-color: #5aaafa;
+    border: 2px solid transparent;
+}
+
+.result {
+	margin-top: 5rem;
+	float: right;
+}
+
+.cloudOEStoreFront {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    line-height: 1;
+    font-weight: 400;
+    background-color: #0f212e;
+}
+
+li {
+    color:#66ff66;
+}
