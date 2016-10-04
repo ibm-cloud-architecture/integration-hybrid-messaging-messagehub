@@ -11,5 +11,5 @@ applications:
   env:
     MQ_SERVER: cap-sg-prd-4.integration.ibmcloud.com
     MQ_PORT: 16582
-    MQ_USER: mqm
-    MQ_PASSWORD: Fqp4Gs4k
+    MQ_USER: USERID
+    MQ_PASSWORD: PASSWORD
